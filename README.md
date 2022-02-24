@@ -1,5 +1,7 @@
 #Among Us Mod Installer for Steam
+
 ##To simplify installing Town of Us or The Other Roles mods for Among US
+
 This is designed to find your Steam Library where Among Us is installed, make a copy of Among Us for backup and modding purposes this way we do not touch your original version. 
 It will then go and grab the required files from the GitHub repos for 'The Other Roles' and 'Town of Us' mods for Among Us.
 Using the backup copy of Among us it will install both Mods in separate directories and create shorts for you. 
