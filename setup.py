@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
 	name = 'AUMI4Steam',
-	version = '0.01',
+	version = '0.03',
 	packages = ['AUMI4Steam'],
 	install_requires = ['vdf', 'wget', 'PyGithub', 'Pillow'],
 	url = 'https://github.com/camarokris/AUMI4Steam',

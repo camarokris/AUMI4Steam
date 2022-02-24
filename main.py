@@ -7,6 +7,7 @@ from shutil import copytree as copydir, rmtree as rmd
 from wget import download as getfile
 from zipfile import ZipFile
 from github import Github
+from dotenv import load_dotenv
 with warnings.catch_warnings():
     warnings.filterwarnings("ignore", category=DeprecationWarning)
     from distutils.dir_util import copy_tree as ctree
@@ -16,6 +17,7 @@ import winreg
 import vdf
 import io
 
+load_dotenv()
 appdata = genv('APPDATA')
 usrhome = genv('USERPROFILE')
 dsktp = pjoin(usrhome,'Desktop')
@@ -119,7 +121,8 @@ def createshortcut(path, target, wdir, icon):
     shortcut.save()
 
 def getmods(augver, auloc):
-    g = Github('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')
+    ghubtoken = genv('AUMI_GITHUB_TOKEN')
+    g = Github(ghubtoken)
     tourepo = g.get_repo('eDonnes124/Town-Of-Us-R')
     tourlv = tourepo.get_latest_release().title
     torrepo = g.get_repo('Eisbison/TheOtherRoles')
@@ -199,4 +202,4 @@ been placed in the ModdedAmongUs directory can be placed anywhere but do not
 move the ModdedAmongUs directory as that will break the shortcuts. Unless you
 know what you are doing of course, then have at it :D""")
     print('---------------------------------------------------------------------')
-    input("Press Any Key To Exit")
+    input("Press Enter twice To Exit")
