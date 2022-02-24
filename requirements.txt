@@ -1,0 +1,4 @@
+vdf==3.4
+wget==3.2
+PyGithub==1.55
+Pillow==9.0.1
