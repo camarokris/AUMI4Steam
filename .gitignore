@@ -6,6 +6,7 @@
 [Ll]ocal
 [Ss]cripts
 pyvenv.cfg
+version.rc
 .venv
 pip-selfcheck.json
 __pycache__/
