@@ -11,11 +11,9 @@ from dotenv import load_dotenv
 with warnings.catch_warnings():
     warnings.filterwarnings("ignore", category=DeprecationWarning)
     from distutils.dir_util import copy_tree as ctree
-from PIL import Image
 from sys import exit
 import winreg
 import vdf
-import io
 
 load_dotenv()
 appdata = genv('APPDATA')
@@ -138,34 +136,24 @@ def getmods(augver, auloc):
     print('Downloading the latest version of The Other Roles and modding a copy of Among Us')
     torlatest = 'https://github.com/Eisbison/TheOtherRoles/releases/latest/download/TheOtherRoles.zip'
     torlocal = pjoin(toraudir, 'TheOtherRoles.zip')
-    torlogol = pjoin(aumoddir, 'TORLogo.png')
     getfile(torlatest, torlocal)
-    with Image.open(io.BytesIO(tdrepo.get_contents("TORLogo.png").decoded_content)) as ima:
-        ima.save(torlogol)
     with ZipFile(torlocal, 'r') as tor_ref:
         tor_ref.extractall(toraudir)
     rm(torlocal)
-    torimg = Image.open(torlogol)
     torico = pjoin(toraudir, 'tor.ico')
-    torimg.save(torico, format = 'ICO')
-    rm(torlogol)
+    getfile("https://raw.githubusercontent.com/camarokris/AUMI4Steam/master/tor.ico", torico)
     print('Downloading the latest version of Town Of Us Reloaded and modding a copy of Among Us')
     tourlatest = 'https://github.com/eDonnes124/Town-Of-Us-R/releases/latest/download/ToU.' + tourlv + '.zip'
     tourlocal = pjoin(aumoddir, 'ToU.' + tourlv + '.zip')
-    tourlogol = pjoin(aumoddir, 'TOURLogo.png')
     getfile(tourlatest, tourlocal)
-    with Image.open(io.BytesIO(tdrepo.get_contents("ToURLogo.png").decoded_content)) as imb:
-        imb.save(tourlogol)
     with ZipFile(tourlocal, 'r') as tour_ref:
         tour_ref.extractall(aumoddir)
     toured = pjoin(aumoddir, 'ToU ' + tourlv)
     ctree(toured, touraudir)
     rm(tourlocal)
     rmd(toured)
-    tourimg = Image.open(tourlogol)
     tourico = pjoin(touraudir, 'tour.ico')
-    tourimg.save(tourico, format = 'ICO')
-    rm(tourlogol)
+    getfile("https://raw.githubusercontent.com/camarokris/AUMI4Steam/master/tour.ico", tourico)
     createshortcut(pjoin(aumoddir, torlv + '_' + augver + '.lnk'), pjoin(toraudir, 'Among Us.exe'), toraudir, torico)
     createshortcut(pjoin(aumoddir, 'Town Of Us Reloaded ' + tourlv + '_' + augver + '.lnk'), pjoin(touraudir, 'Among Us.exe'), touraudir, tourico)
     print('Your modded copies of Among Us are located in a folder on your desktop called ModdedAmongUs.')
