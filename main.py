@@ -132,7 +132,6 @@ def getmods(augver, auloc):
     copydir(auloc, toraudir)
     copydir(auloc, touraudir)
     copydir(auloc, auvbackdir)
-    tdrepo = g.get_repo("camarokris/private-stuff")
     print('Downloading the latest version of The Other Roles and modding a copy of Among Us')
     torlatest = 'https://github.com/Eisbison/TheOtherRoles/releases/latest/download/TheOtherRoles.zip'
     torlocal = pjoin(toraudir, 'TheOtherRoles.zip')
